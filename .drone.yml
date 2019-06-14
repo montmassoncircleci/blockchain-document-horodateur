@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+name: default
 
 steps:
 - name: publish_webapp

@@ -1,3 +1,4 @@
+[![Build Status](https://cloud.drone.io/api/badges/montmassoncircleci/blockchain-document-horodateur/status.svg)](https://cloud.drone.io/montmassoncircleci/blockchain-document-horodateur)
 
 # Prototype Registre du Commerce
 

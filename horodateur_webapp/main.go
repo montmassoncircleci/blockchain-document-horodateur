@@ -121,8 +121,10 @@ func main() {
 		IDPMetadataURL: idpMetadataURL,
 	})
 
+	mainURI := os.Getenv("MAIN_URI")
+
 	// This is where the SAML package will open information about SP to the world
-	http.Handle("/saml/", samlSP)
+	http.Handle("/"+mainURI+"/saml/", samlSP)
 
 	// Main Gateway to Webapp & API, it needs SAML login
 	http.Handle("/", samlSP.RequireAccount(http.HandlerFunc(new(RouteHandler).ServeHTTP)))

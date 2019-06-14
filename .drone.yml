@@ -1,0 +1,34 @@
+---
+kind: pipeline
+
+steps:
+- name: publish_webapp
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    dockerfile: horodateur_webapp/Dockerfile
+    context: horodateur_webapp
+    repo: "montmassoncircleci/horodateur_webapp"
+    password: 
+      from_secret: password
+    username: 
+      from_secret: username      
+  when:
+    event:
+    - push
+    - tag
+- name: publish_api
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    dockerfile: horodateur_api/Dockerfile
+    context: horodateur_api
+    repo: montmassoncircleci/horodateur_api
+    password: 
+      from_secret: password
+    username: 
+      from_secret: username      
+  when:
+    event:
+    - push
+    - tag

@@ -33,3 +33,18 @@ steps:
     event:
     - push
     - tag
+- name: publish_nginx
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    dockerfile: nginx/Dockerfile
+    context: nginx
+    repo: montmassoncircleci/nginx
+    password: 
+      from_secret: password
+    username: 
+      from_secret: username      
+  when:
+    event:
+    - push
+    - tag

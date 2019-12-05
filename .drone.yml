@@ -39,7 +39,7 @@ steps:
     auto_tag: true
     dockerfile: nginx/Dockerfile
     context: nginx
-    repo: montmassoncircleci/nginx
+    repo: montmassoncircleci/horodateur_nginx
     password: 
       from_secret: password
     username: 
